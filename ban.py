@@ -1,4 +1,4 @@
-                import discord
+import discord
 from discord.ext import commands
 from discord_slash import SlashCommand #https://pypi.org/project/discord-py-slash-command/
 
