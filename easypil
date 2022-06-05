@@ -1,0 +1,64 @@
+from easy_pil import Editor, load_image_async, Font
+
+@client.command(name="hitler")
+async def hitler(ctx,member:discord.Member = None):
+    background = Editor("hitler.png")
+    profile_image = await load_image_async(str(member.avatar_url))
+    profile = Editor(profile_image).resize((157, 176))
+    background.paste(profile, (30, 26))
+    file = File(fp=background.image_bytes, filename="hitler.png")
+    await ctx.send(file=file)
+
+@client.command(name="bonk")
+async def _bonk(ctx, user: discord.Member, user2: discord.Member = None):
+    if user == None:
+        user == ctx.author
+    if user2 == None:
+        user2 = ctx.author
+    background = Editor("bonker.png")
+    profile_image = await load_image_async(str(user.avatar_url))
+    profile = Editor(profile_image).resize((329, 256))
+    background.paste(profile, (255, 117))
+    profile_image = await load_image_async(str(user2.avatar_url))
+    profile = Editor(profile_image).resize((287, 252))
+    background.paste(profile, (806, 511))
+    file = File(fp=background.image_bytes, filename="bonker.png")
+    await ctx.send(file=file)
+
+@client.command(name="fiveman")
+async def _fiveman(ctx,member:discord.User = None):
+    if not member:
+        member = ctx.author
+    background = Editor("five.png")
+    profile_image = await load_image_async(str(member.avatar_url))
+    profile = Editor(profile_image).resize((240, 234))
+    background.paste(profile, (428, 260))
+    file = File(fp=background.image_bytes, filename="five.png")
+    await ctx.send(file=file)
+
+@client.command(name="slap")
+async def _slap(ctx, user: discord.Member, user2: discord.Member = None):
+    if user == None:
+        user == ctx.author
+    if user2 == None:
+        user2 = ctx.author
+    background = Editor("batman.png")
+    profile_image = await load_image_async(str(user2.avatar_url))
+    profile = Editor(profile_image).resize((291, 251))
+    background.paste(profile, (809, 321))
+    profile_image = await load_image_async(str(user.avatar_url))
+    profile = Editor(profile_image).resize((291, 251))
+    background.paste(profile, (497, 115))
+    file = File(fp=background.image_bytes, filename="batman.png")
+    await ctx.send(file=file)
+
+@client.command(name="hotfood")
+async def _hotfood(ctx,member:discord.User = None):
+    if not member:
+        member = ctx.author
+    background = Editor("hot.png")
+    profile_image = await load_image_async(str(member.avatar_url))
+    profile = Editor(profile_image).resize((483, 426))
+    background.paste(profile, (53, 126))
+    file = File(fp=background.image_bytes, filename="hot.png")
+    await ctx.send(file=file)
